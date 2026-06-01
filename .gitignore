@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# 设计文档（Word 版，不随站点发布）
+*.docx

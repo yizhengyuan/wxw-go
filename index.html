@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>未下完的棋 · 试玩版</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>未下完的棋 <span style="font-size:13px;color:#9aa0aa;">试玩版</span></h1>
+    <p class="subtitle">执黑落子 · 吃白触发斜对角染色 · 终局围眼计分</p>
+
+    <div id="size-bar" class="size-bar"></div>
+
+    <div class="hud">
+      <div class="cell"><div class="label">黑棋余量</div><div class="value black" id="black-stones">8</div></div>
+      <div class="cell"><div class="label">白棋余量</div><div class="value white" id="white-stones">8</div></div>
+      <div class="cell"><div class="label">当前分</div><div class="value score" id="current-score">0</div></div>
+      <div class="cell"><div class="label">目标分</div><div class="value target" id="target">3</div></div>
+    </div>
+
+    <div id="hint">轮到你落子(执黑)</div>
+
+    <div class="board-area">
+      <canvas id="board"></canvas>
+    </div>
+
+    <div class="controls">
+      <button id="pass-btn">虚手 (Pass)</button>
+      <button id="restart-btn">重开</button>
+    </div>
+
+    <div id="result"></div>
+
+    <div class="legend">
+      <b>玩法</b>:你执黑先行,电脑执白。黑棋吃掉白子时,被吃点四周的<b>方格(格子,非交叉点)</b>永久 +1 分数价值(橙色数字显示在格子里)。<br>
+      <b>终局</b>:双方棋子用尽且无处可下后,被黑棋正交包围的空交叉点即为「眼」。<br>
+      <b>计分</b>:单眼 = 1(基础) + 该眼四周方格的染色值之和(中腹眼 4 格 / 边眼 2 格 / 角眼 1 格)。总分 ≥ 目标分即过关。
+    </div>
+  </div>
+
+  <!-- 按依赖顺序加载(普通 script,双击即可运行,无需构建) -->
+  <script src="js/config.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/scoring.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
